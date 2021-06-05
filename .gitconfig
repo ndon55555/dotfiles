@@ -1,0 +1,10 @@
+[user]
+    name = Don Nguyen
+    email = ndon55555@gmail.com
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+[core]
+    autocrlf = input
+    eol = lf

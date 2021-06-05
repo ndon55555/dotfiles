@@ -1,3 +1,17 @@
-- clean: []
-- link: {}
-- shell: []
+- clean: ["~"]
+
+- link:
+    ~/.gitconfig: .gitconfig
+    ~/.config/git/ignore:
+      create: true
+      path: .gitignore-global
+    ~/.tmux.conf: .tmux.conf
+    ~/.vim/coc-settings.json: .vim/coc-settings.json
+    ~/.vimrc: .vimrc
+    ~/.zshrc: .zshrc
+
+# Common
+- shell:
+    # Install asdf
+    - git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf" || true
+    - pushd "$HOME/.asdf" && git checkout "$(git describe --abbrev=0 --tags)" && popd
