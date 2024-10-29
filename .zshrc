@@ -65,7 +65,7 @@ export DISABLE_UPDATE_PROMPT=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(asdf git z)
+plugins=(git fzf z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,3 +106,14 @@ export EDITOR=$VISUAL
 
 # Stop zsh from piping some commands into `less`
 unset LESS
+
+alias kc="kubectl"
+
+# Allows watch to work on aliased commands
+alias watch='watch '
+
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+alias mirth="/Applications/Mirth\ Connect\ Administrator\ Launcher.app/Contents/MacOS/JavaApplicationStub"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

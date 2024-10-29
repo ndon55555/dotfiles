@@ -1,3 +1,18 @@
 # Vim backup files
 *.swp
 *.swo
+
+# asdf files
+.tool-versions
+
+# Docker Compose override file
+docker-compose.override.yml
+
+# VS Code Dev Containers
+.devcontainer
+
+*keystore.jks
+*.bak
+*.env
+
+archive/
