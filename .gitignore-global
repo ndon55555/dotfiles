@@ -2,8 +2,8 @@
 *.swp
 *.swo
 
-# asdf files
-.tool-versions
+# mise files
+.mise.toml
 
 # Docker Compose override file
 docker-compose.override.yml

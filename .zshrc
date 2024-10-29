@@ -103,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias kc="kubectl"
+
 # Ensures that any tools installed with brew are available on the PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
