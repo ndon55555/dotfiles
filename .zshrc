@@ -103,6 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Stop zsh from piping some commands into `less`
+unset LESS
+
 alias kc="kubectl"
 
 # Ensures that any tools installed with brew are available on the PATH
@@ -113,3 +116,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Ensures that any tools installed with mise are available on the PATH
 eval "$(mise activate zsh)"
+
+# Created by `pipx` on 2024-12-18 23:04:53
+export PATH="$PATH:/Users/don.nguyen/.local/bin"

@@ -57,3 +57,7 @@ Dotbot (or this repository) to help other people discover Dotbot.
 [wazery_dotfiles]: https://github.com/wazery/dotfiles
 [thirtythreeforty_dotfiles]: https://github.com/thirtythreeforty/dotfiles
 [dotbot-users]: https://github.com/anishathalye/dotbot/wiki/Users
+
+## TODO
+- Install brew
+    - Install mise, fzf, docker, docker-buildx, docker-compose, linearmouse, iterm2, visual-studio-code, notunes, colima
