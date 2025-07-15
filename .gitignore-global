@@ -3,7 +3,7 @@
 *.swo
 
 # mise files
-.mise.toml
+*mise.toml
 
 # Docker Compose override file
 docker-compose.override.yml
