@@ -129,3 +129,57 @@ esac
 # pnpm end
 
 export EDITOR="vim"
+
+# Jujutsu (jj) prompt support for af-magic theme
+function jj_prompt_info() {
+  if (( ! $+commands[jj] )); then
+    return
+  fi
+
+  # Check if we're in a jj repo
+  if ! jj root --quiet &>/dev/null; then
+    return
+  fi
+
+  local PREFIX="${ZSH_THEME_JJ_PROMPT_PREFIX:-$ZSH_THEME_GIT_PROMPT_PREFIX}"
+  local SUFFIX="${ZSH_THEME_JJ_PROMPT_SUFFIX:-$ZSH_THEME_GIT_PROMPT_SUFFIX}"
+  local DIRTY="${ZSH_THEME_JJ_PROMPT_DIRTY:-$ZSH_THEME_GIT_PROMPT_DIRTY}"
+  local CLEAN="${ZSH_THEME_JJ_PROMPT_CLEAN:-$ZSH_THEME_GIT_PROMPT_CLEAN}"
+
+  # Get parent bookmark names or commit hash
+  # Use map(|b| b.name()) to ensure we get just the names without status markers like *
+  local parent_info=$(jj log -r @- -n 1 --no-graph --color=never -T 'if(bookmarks, bookmarks.map(|b| b.name()).join(", "), commit_id.short())' 2>/dev/null)
+  
+  # Check if working copy (@) is dirty (not empty)
+  # jj returns "true" if the commit is empty, "false" otherwise
+  local is_empty=$(jj log -r @ -n 1 --no-graph --color=never -T 'empty' 2>/dev/null)
+
+  local jj_status=""
+  if [[ "$is_empty" == "false" ]]; then
+    jj_status="$DIRTY"
+  else
+    jj_status="$CLEAN"
+  fi
+
+  echo "${PREFIX}${parent_info}${jj_status}${SUFFIX}"
+}
+
+# Match af-magic colors for jj
+ZSH_THEME_JJ_PROMPT_PREFIX=" ${FG[075]}(${FG[078]}"
+ZSH_THEME_JJ_PROMPT_CLEAN=""
+ZSH_THEME_JJ_PROMPT_DIRTY="${FG[214]}*%{$reset_color%}"
+ZSH_THEME_JJ_PROMPT_SUFFIX="${FG[075]})%{$reset_color%}"
+
+# A wrapper to choose between JJ and Git/Hg prompts to avoid double parens
+function vcs_prompt_info() {
+  if jj root --quiet &>/dev/null; then
+    jj_prompt_info
+  else
+    echo "$(git_prompt_info)$(hg_prompt_info)"
+  fi
+}
+
+# Override PS1 to use our vcs_prompt_info wrapper
+# Note: We must do this after sourcing oh-my-zsh.sh
+PS1="${FG[237]}\${(l.\$(afmagic_dashes)..-.)}%{$reset_color%}
+${FG[032]}%~\$(vcs_prompt_info) ${FG[105]}%(!.#.»)%{$reset_color%} "
