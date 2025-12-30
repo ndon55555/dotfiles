@@ -22,8 +22,12 @@ function git_prompt_info() {
     # Re-apply green color after dirty asterisk
     local first_part="${hash}${dirty}${hash_color}"
 
-    local tags=$(git tag --points-at HEAD 2>/dev/null | paste -sd "," -)
-    local branches=$(git branch --points-at HEAD --format='%(refname:short)' 2>/dev/null | grep -v "(HEAD detached" | paste -sd "," -)
+    # Get tags and branches, splitting by line and joining with comma+space
+    local tags=$(git tag --points-at HEAD 2>/dev/null)
+    tags="${(j:, :)${(f)tags}}"
+    
+    local branches=$(git branch --points-at HEAD --format='%(refname:short)' 2>/dev/null | grep -v "(HEAD detached")
+    branches="${(j:, :)${(f)branches}}"
 
     # Define the yellow detached label
     # The word "detached" is yellow, the parens match the theme's prefix color (075)
