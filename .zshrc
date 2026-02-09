@@ -70,7 +70,9 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf z)
+
+# Note that brew must load before mise if installing mise with brew
+plugins=(brew fzf git mise z)
 
 # Define ZSH_CUSTOM before sourcing Oh My Zsh
 export ZSH_CUSTOM="$HOME/.zsh"
