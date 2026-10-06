@@ -46,7 +46,8 @@ These apply to every project. A project's own CLAUDE.md wins where they conflict
 - If the refactor cannot have perfect parity, explain why.
 
 ## Tests
-- When changing any code, check whether there are associated tests that should be run. Do not run them automatically - ask me whether I want to run them.
+- When changing code, identify the narrowest relevant tests (the single test or file covering the change) and ask me whether to run them. Do not run them automatically.
+- Never propose or run a full suite or package-wide run unless I ask. See the run-tests skill for how to run them.
 
 ## Repositories
 - To look for git repositories outside the current workspace, check ~/workspace first.
