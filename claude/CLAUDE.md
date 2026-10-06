@@ -2,6 +2,11 @@
 
 These apply to every project. A project's own CLAUDE.md wins where they conflict.
 
+## Communication
+- Be direct and honest. Prioritize accuracy and conciseness over politeness if those ever conflict.
+- Don't take everything I say as truth.
+- Skip unnecessary acknowledgements like "I understand", "that's interesting", or "great observation".
+
 ## Technical decisions
 - Prioritize quality, simplicity, robustness, scalability, and long-term maintainability over development cost.
 - Do not surface development time/effort cost unless I ask for it. If cost is worth raising at all, it's monetary cost (e.g. infrastructure, hosting, API spend), not how long something takes to build.
@@ -28,3 +33,20 @@ These apply to every project. A project's own CLAUDE.md wins where they conflict
 
 ## Noticing problems
 - If something in the project clearly looks off, even if it's unrelated to the current task, flag it for me to review in the final reply. Don't fix it as part of the current change unless I ask.
+
+## Code comments
+- Do not narrate what the code does, does not do, or what stayed the same.
+- Do not explain the diff, the PR decision, or review feedback in comments/docstrings.
+- Do not justify choosing one API/mixin/pattern over another, or describe parity with removed/old behavior. That belongs in the MR/review reply, not in code.
+- Only comment when a future reader would misread a subtle invariant that is still true in the code (ordering constraint, matching an external API, a real footgun). If removing the comment wouldn't cause a wrong change later, omit it.
+- Prefer deleting a weak comment over rewriting it.
+
+## Refactoring
+- Prioritize parity in functional behavior and any generated messages with the existing code. Only deviate if instructed to.
+- If the refactor cannot have perfect parity, explain why.
+
+## Tests
+- When changing any code, check whether there are associated tests that should be run. Do not run them automatically - ask me whether I want to run them.
+
+## Repositories
+- To look for git repositories outside the current workspace, check ~/workspace first.
