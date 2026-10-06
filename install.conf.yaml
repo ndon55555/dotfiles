@@ -12,3 +12,7 @@
     ~/.claude/CLAUDE.md:
       create: true
       path: claude/CLAUDE.md
+    ~/.claude/skills/localization-best-practices: claude/skills/localization-best-practices
+    ~/.claude/skills/my-frontend-development-preferences: claude/skills/my-frontend-development-preferences
+    ~/.claude/skills/my-python-development-preferences: claude/skills/my-python-development-preferences
+    ~/.claude/skills/run-tests: claude/skills/run-tests
