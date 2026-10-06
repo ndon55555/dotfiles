@@ -9,3 +9,6 @@
     ~/.vimrc: .vimrc
     ~/.zshrc: .zshrc
     ~/.zsh: zsh
+    ~/.claude/CLAUDE.md:
+      create: true
+      path: claude/CLAUDE.md
