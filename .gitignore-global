@@ -20,3 +20,12 @@ archive/
 
 # Cursor
 .cursorindexingignore
+.cursor
+
+.vscode/settings.json
+
+# pnpm
+.pnpm-store
+
+# Scratch files
+scratch/

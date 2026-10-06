@@ -77,6 +77,9 @@ plugins=(brew fzf git mise z)
 # Define ZSH_CUSTOM before sourcing Oh My Zsh
 export ZSH_CUSTOM="$HOME/.zsh"
 
+# https://github.com/alltuner/mise-completions-sync
+fpath=(${XDG_DATA_HOME:-$HOME/.local/share}/mise-completions/zsh $fpath)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
