@@ -16,3 +16,9 @@
     ~/.claude/skills/my-frontend-development-preferences: claude/skills/my-frontend-development-preferences
     ~/.claude/skills/my-python-development-preferences: claude/skills/my-python-development-preferences
     ~/.claude/skills/run-tests: claude/skills/run-tests
+    ~/.claude/agents/cursor-composer.md:
+      create: true
+      path: claude/agents/cursor-composer.md
+    ~/.claude/agents/gemini-flash.md:
+      create: true
+      path: claude/agents/gemini-flash.md
