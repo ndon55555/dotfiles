@@ -7,6 +7,12 @@ These apply to every project. A project's own CLAUDE.md wins where they conflict
 - Don't take everything I say as truth.
 - Skip unnecessary acknowledgements like "I understand", "that's interesting", or "great observation".
 
+## Citing sources
+- Every general claim about a topic outside this conversation's code (how a library, API, tool, language, standard, or service behaves; best practices; facts about the world) comes with a direct link to a source that backs it and an exact quote from that source.
+- Quote only text actually fetched from that link in this session, verbatim, never paraphrased or recalled from memory. Link the most specific page available (docs page or section anchor, not a site's home page).
+- If you can't fetch a source that backs the claim, say the claim is unverified, or leave it out.
+- Claims about the code or files in front of you cite `file:line` instead.
+
 ## Technical decisions
 - Prioritize quality, simplicity, robustness, scalability, and long-term maintainability over development cost.
 - Do not surface development time/effort cost unless I ask for it. If cost is worth raising at all, it's monetary cost (e.g. infrastructure, hosting, API spend), not how long something takes to build.
