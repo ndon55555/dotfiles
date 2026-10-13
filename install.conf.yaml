@@ -17,6 +17,7 @@
     ~/.claude/skills/my-infra-ci-preferences: claude/skills/my-infra-ci-preferences
     ~/.claude/skills/my-python-development-preferences: claude/skills/my-python-development-preferences
     ~/.claude/skills/run-tests: claude/skills/run-tests
+    ~/.claude/skills/zed: claude/skills/zed
     ~/.claude/agents/cursor-composer.md:
       create: true
       path: claude/agents/cursor-composer.md
