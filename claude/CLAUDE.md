@@ -1,6 +1,6 @@
 # Global preferences
 
-These apply to every project. A project's own CLAUDE.md wins where they conflict.
+These apply to every project. A project's own CLAUDE.md or AGENTS.md wins where they conflict.
 
 ## Communication
 - Be direct and honest. Prioritize accuracy and conciseness over politeness if those ever conflict.
