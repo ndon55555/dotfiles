@@ -13,7 +13,7 @@ description: Don's preferences for Dockerfiles, GitLab CI, Helm/Kubernetes deplo
 - Before building a scheduled job, check whether an existing pipeline schedule or another team's job already does it.
 
 ## Docker
-- COPY an explicit allowlist of what the image needs. Don't rely on a `.dockerignore` denylist.
+- For a production image, COPY an explicit allowlist of what the image needs. Don't rely on a `.dockerignore` denylist. A dev image does not need this level of granularity.
 - Keep stages minimal. After a redesign, collapse stages that no longer earn their place. Don't re-set ENV that the base image already sets.
 - When a target's CMD, USER, or contents change, grep docker-compose, CI jobs (including jobs that use the app image as their job image), and deploy YAML for every consumer.
 - Something in CI must build and exercise the production target.
