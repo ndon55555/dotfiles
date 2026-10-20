@@ -22,10 +22,15 @@ archive/
 .cursorindexingignore
 .cursor
 
+# VS Code
 .vscode/settings.json
+
+# Zed
+.zed
 
 # pnpm
 .pnpm-store
 
 # Scratch files
 scratch/
+
