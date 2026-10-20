@@ -13,6 +13,7 @@
       create: true
       path: claude/CLAUDE.md
     ~/.claude/skills/localization-best-practices: claude/skills/localization-best-practices
+    ~/.claude/skills/my-backend-development-preferences: claude/skills/my-backend-development-preferences
     ~/.claude/skills/my-frontend-development-preferences: claude/skills/my-frontend-development-preferences
     ~/.claude/skills/my-infra-ci-preferences: claude/skills/my-infra-ci-preferences
     ~/.claude/skills/my-python-development-preferences: claude/skills/my-python-development-preferences

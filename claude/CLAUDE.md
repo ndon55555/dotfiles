@@ -23,7 +23,7 @@ These apply to every project. A project's own CLAUDE.md or AGENTS.md wins where 
 - When a persisted value changes shape, bump the key, migrate, or validate on read. Never silently reuse the old key.
 
 ## Reuse before adding
-- Before writing a helper, enum, constant, type, formatter, fixture, page object, exception class, or concurrency primitive, search the repo for an existing one and use it. Extend the existing implementation rather than adding a parallel one beside it.
+- Before writing a helper, enum, constant, type, formatter, query or subquery, fixture, page object, exception class, or concurrency primitive, search the repo for an existing one and use it. Extend the existing implementation rather than adding a parallel one beside it. If the pattern exists only inline elsewhere, extract it into a shared helper used by both places instead of copying it.
 - Check the project's pinned version of a library before using its API (e.g. pydantic v1 vs v2, boto3).
 
 ## No speculative surface
@@ -70,9 +70,16 @@ These apply to every project. A project's own CLAUDE.md or AGENTS.md wins where 
 
 ## Tests
 - Every new branch, error path, and field gets a test. Parsers and filters also get boundary inputs: empty, missing optional field, escaped characters, fewer than expected.
-- Every assertion must fail if the behavior it tests broke. Assert exact values, not `at.least`/`objectContaining`/tolerance margins. Test through the public surface (views, components) rather than internals.
+- A test is a specification. Before writing one, state the one behavior or contract it specifies; every assertion and every piece of setup serves that behavior. Incidental behavior (another table's writes, translations) goes in the test that owns it, or is left out.
+- Test only states the system can reach. Before adding a test, trace the callers or signal senders to confirm its precondition happens in production. A branch reachable only from an impossible state is a guard to remove (see No speculative surface), not one to cover.
+- Test through the public surface (views, components) and drive the real trigger rather than hand-building the intermediate state it would produce; hand-built state can pass while the real path is broken. Once a test through the real path covers a behavior, delete the hand-built one.
+- Every assertion must fail if the behavior it tests broke. No assertion that holds whatever the code does (e.g. "no rows exist" in a scenario that never creates rows). Assert exact values, not `at.least`/`objectContaining`/tolerance margins.
+- Don't assert what a full-shape assertion already implies. Parametrize cases of one behavior instead of copying the test, and give each case an id that names it.
+- Keep setup minimal. Extract setup repeated across a module's tests into small module-level helpers. Use the simplest data (English, a single row) unless the variation is what's under test.
 - Use real instances of the project's own models and objects; mock only external boundaries.
 - When a contract changes, find tests that now pass vacuously and rewrite or delete them.
+- When reviewing or trimming tests, stay within the tests the change adds unless I ask otherwise.
+- Before finishing, re-read each new test as a specification: can a reader tell what it promises from its name and body alone?
 - When changing code, identify the narrowest relevant tests (the single test or file covering the change) and ask me whether to run them. Do not run them automatically.
 - Never propose or run a full suite or package-wide run unless I ask. See the run-tests skill for how to run them.
 
