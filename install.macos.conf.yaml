@@ -1,0 +1,16 @@
+- link:
+    ~/.colima/_templates/default.yaml:
+      create: true
+      force: true
+      path: colima/default.yaml
+
+- shell:
+    - command: brew bundle --file=Brewfile
+      description: Installing Homebrew packages from Brewfile
+      stdout: true
+      stderr: true
+    - command: /usr/bin/arch -x86_64 /usr/bin/true 2>/dev/null || softwareupdate --install-rosetta
+      description: Installing Rosetta (needed for Colima --vz-rosetta)
+      stdin: true
+      stdout: true
+      stderr: true

@@ -58,6 +58,8 @@ Dotbot (or this repository) to help other people discover Dotbot.
 [thirtythreeforty_dotfiles]: https://github.com/thirtythreeforty/dotfiles
 [dotbot-users]: https://github.com/anishathalye/dotbot/wiki/Users
 
-## TODO
-- Install brew
-    - Install mise, fzf, docker, docker-buildx, docker-compose, linearmouse, iterm2, visual-studio-code, notunes, colima
+## macOS setup
+Install [Homebrew](https://brew.sh) first, then run `./install`. On macOS it also
+runs `install.macos.conf.yaml`, which installs the `Brewfile`, installs Rosetta
+if missing (prompts to accept Apple's license), and links the Colima template
+used for new instances.

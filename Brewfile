@@ -1,0 +1,11 @@
+brew "colima"
+brew "docker"
+brew "docker-buildx"
+brew "docker-compose"
+brew "fzf"
+brew "mise"
+
+cask "iterm2"
+cask "linearmouse"
+cask "notunes"
+cask "zed"
